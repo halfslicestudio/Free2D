@@ -3,4 +3,10 @@ Free2D is a Donationware open source game engine being developed by "Expressed U
 
 Feel free to make games with it for personal or commercial use.(no need to donate)
 
-DOCUMENTATION SOON
+###### Documentation
+
+```
+Placing Objects
+```
+## new Object2D(Texture2D Texture, int RoomID);
+## new Object2D(Texture2D Texture,Vector2 Position, Vector2 Rotation, Vector2 Scale, int RoomID);
