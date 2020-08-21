@@ -59,12 +59,16 @@ public class Object2D
         GL.End();
        
     }
-    public void Destroy()
+    public static Object2D Destroy(Object2D obj)
     {
-        Free2DEngine.RemoveObject(this);
+        Free2DEngine.RemoveObject(obj);
+        obj = null;
+        return obj;
     }
     public static bool Intersects(Object2D a, Object2D b, bool UseCustomColliders)
     {
+        if (a == null || b == null)
+            return false;
         if (!UseCustomColliders)
         {
             if (a.Position.X < b.Position.X + (b.Scale.X / 100) &&

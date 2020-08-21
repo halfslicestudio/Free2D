@@ -350,6 +350,7 @@
             this.flatToggle1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.flatToggle1.Location = new System.Drawing.Point(169, 290);
             this.flatToggle1.Name = "flatToggle1";
+            this.flatToggle1.Options = FlatUI.FlatToggle._Options.Style1;
             this.flatToggle1.Size = new System.Drawing.Size(76, 33);
             this.flatToggle1.TabIndex = 4;
             this.flatToggle1.Text = "gameRunToggle";
