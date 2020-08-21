@@ -32,3 +32,29 @@ Vector2.Subtract(new Vector2(1,1), new Vector2(2,2));
 Vector2.Multiply(new Vector2(1,1), new Vector2(2,2));
 Vector2.Devide(new Vector2(1,1), new Vector2(2,2));
 ```
+
+## Logging
+```
+Log.Normal(string msg);
+Log.Info(string msg);
+Log.Warning(string msg);
+Log.Error(string msg);
+```
+
+##Exposed Engine Variables
+```
+//ColorRGB -  Used to change the background colour
+ClearColor = new ColorRGBA(1f,1f,1f,1f);
+//int - Used to render different objects in other rooms
+RoomID = 1
+```
+###### Functions / Methods
+Engine functions are displayed as tabs, some tabs will have exposed values that can be used only in that tab.
+```
+LoadContent
+Start
+Update(GameTime deltaTime, int RoomID);
+Draw(GameTime deltaTime, int RoomID);
+OnKeyUp(string key)// key == "a"
+OnKeyDown(string key)//key == "a"
+```
