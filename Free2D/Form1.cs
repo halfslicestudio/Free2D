@@ -83,9 +83,10 @@ namespace Free2D
             string dir = String.Format("Projects/{0}/Build/", gameName.Text);
             File.Copy("Free2DEngine.dll", dir + "Free2DEngine.dll",true);
             File.Copy("OpenTK.dll", dir + "OpenTK.dll", true);
-            
+            File.Copy("NAudio.dll", dir + "NAudio.dll", true);
+
             CSharpCodeProvider csc = new CSharpCodeProvider(new Dictionary<string, string>() { { "CompilerVersion", "v4.0" } });
-            CompilerParameters parameters = new CompilerParameters(new[] {"mscorlib.dll", "System.Core.dll","Free2DEngine.dll", "OpenTK.dll" },dir+gameName.Text+".exe",true);
+            CompilerParameters parameters = new CompilerParameters(new[] {"mscorlib.dll", "System.Core.dll","Free2DEngine.dll", "OpenTK.dll", "NAudio.dll" },dir+gameName.Text+".exe",true);
             parameters.GenerateExecutable = true;
             CompilerResults results = csc.CompileAssemblyFromSource(parameters, ("using System;using System.Collections.Generic;using System.Linq;" +
                 "" +
@@ -97,7 +98,7 @@ namespace Free2D
                 "}" +
                 "" +
                 "public class Game : Free2DEngine{" +
-                 "public Game() : base(512,512," + title + "," + roomID.Value.ToString() + "){}" +
+                 "public Game() : base(412,412," + title + "," + roomID.Value.ToString() + "){}" +
                  "" + gv.GetValue() +
                 "public override void LoadContent(){" +
                 "" + loadText.Text +

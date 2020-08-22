@@ -7,22 +7,22 @@ using OpenTK.Graphics.OpenGL;
 public class Object2D
 {
     public Texture2D Texture { get; set; }
-    public Vector2 Rotation { get; set; }
-    public Vector2 Scale { get; set; }
-    public Vector2 Collider = Vector2.One();
-    public Vector2 Position { get; set; }
+    public Vector2D Rotation { get; set; }
+    public Vector2D Scale { get; set; }
+    public Vector2D Collider = Vector2D.One();
+    public Vector2D Position { get; set; }
     public int RoomID { get; set; }
 
     public Object2D(Texture2D Texture, int RoomID)
     {
         this.Texture = ContentPipe.LoadTexture(Texture);
-        this.Position = Vector2.Zero();
-        this.Rotation = Vector2.One();
-        this.Scale = Vector2.One();
+        this.Position = Vector2D.Zero();
+        this.Rotation = Vector2D.Zero();
+        this.Scale = Vector2D.One();
         this.RoomID = RoomID;
         Free2DEngine.AddNewObject(this);
     }
-    public Object2D(Texture2D Texture,Vector2 Position, Vector2 Rotation, Vector2 Scale, int RoomID)
+    public Object2D(Texture2D Texture,Vector2D Position, Vector2D Rotation, Vector2D Scale, int RoomID)
     {
         this.Texture = ContentPipe.LoadTexture(Texture);
 
@@ -59,16 +59,12 @@ public class Object2D
         GL.End();
        
     }
-    public static Object2D Destroy(Object2D obj)
+    public void Destroy()
     {
-        Free2DEngine.RemoveObject(obj);
-        obj = null;
-        return obj;
+        Free2DEngine.RemoveObject(this);
     }
     public static bool Intersects(Object2D a, Object2D b, bool UseCustomColliders)
     {
-        if (a == null || b == null)
-            return false;
         if (!UseCustomColliders)
         {
             if (a.Position.X < b.Position.X + (b.Scale.X / 100) &&
